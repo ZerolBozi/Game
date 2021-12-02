@@ -29,6 +29,7 @@ def ChooseDifficulty():
         Ndifficulty = int(difficulty)
     else:
         Ndifficulty = -1
+
     if Ndifficulty == 1:
         erange = 50
     elif Ndifficulty == 2:
