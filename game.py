@@ -21,20 +21,20 @@ def ChooseDifficulty():
     global srange
     global erange
     global rndans
-    global Ndifficulty
+    global ndifficulty
     srange = 1
 
     difficulty = input("請選擇難易度，1.簡單 2.普通 3.困難（輸入數字）")
     if IsNumber(difficulty):
-        Ndifficulty = int(difficulty)
+        ndifficulty = int(difficulty)
     else:
-        Ndifficulty = -1
+        ndifficulty = -1
 
-    if Ndifficulty == 1:
+    if ndifficulty == 1:
         erange = 50
-    elif Ndifficulty == 2:
+    elif ndifficulty == 2:
         erange = 200
-    elif Ndifficulty == 3:
+    elif ndifficulty == 3:
         erange = 500
     else:
         print("輸入的困難度錯誤，請重新輸入！！")
@@ -49,7 +49,7 @@ def GameStart():
     global srange
     global erange
     global rndans
-    global Ndifficulty
+    global ndifficulty
     wrongans = 0
     gamepass = 0
 
@@ -91,13 +91,15 @@ def GameStart():
         print("恭喜您猜對囉，猜數高手就是你")
         print(f"累計答錯題數：{wrongans}")
         print("花費秒數：%.2f"%(round(et-st,2)))
-        record = GameRank(Ndifficulty,wrongans,round(et-st,2))
+        record = GameRank(ndifficulty,wrongans,round(et-st,2))
         print("\n-----BestRecord-----")
-        print("難易度：%s"%(str(Ndifficulty).replace('1','簡單').replace('2','普通').replace('3','困難')))
+        print("難易度：%s"%(str(ndifficulty).replace('1','簡單').replace('2','普通').replace('3','困難')))
         print("累計答錯：%d"%record[0])
         print("花費秒數：%.2f\n"%record[1])
         
         engine = pyttsx3.init()
+        engine.say("恭喜您猜對囉，猜數高手就是你")
+        engine.runAndWait()
         engine.say(f"累計答錯題數：{wrongans}")
         engine.runAndWait()
 
