@@ -61,12 +61,10 @@ def GameStart():
         if ans == "密技":
             print(f"答案為{rndans}")
             continue
-
         if ans.lower() == "end":
             print("遊戲將於一秒後結束")
             time.sleep(1)
             break
-        
         if not IsNumber(ans):
             continue
         
