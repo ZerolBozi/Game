@@ -1,7 +1,7 @@
 import random
 import time
 import os
-#import pyttsx3
+import pyttsx3
 
 def IsNumber(s):
     try:
@@ -77,10 +77,10 @@ def GameStart():
 
     if gamepass:
         print("恭喜您猜對囉，猜數高手就是你")
-        #engine = pyttsx3.init()
-        #engine.say(f"累計答錯題數：{wrongans}")
-        #engine.runAndWait()
         print(f"累計答錯題數：{wrongans}")
+        engine = pyttsx3.init()
+        engine.say(f"累計答錯題數：{wrongans}")
+        engine.runAndWait()
         while True:
             re = input("是否重新開始遊戲（y/n）")
             if re.lower() == 'y':
