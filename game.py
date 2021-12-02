@@ -71,6 +71,9 @@ def GameStart():
         while True:
             re = input("是否重新開始遊戲（y/n）")
             if re.lower() == 'y':
+                print("正在重新載入遊戲...")
+                time.sleep(1.5)
+                os.system('cls')
                 ChooseDifficulty()
                 break
             elif re.lower() == 'n':
