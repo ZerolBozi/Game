@@ -41,12 +41,12 @@ def GameStart():
             print(f"答案為{rndans}")
             continue
 
-        num = int(ans)
-
         if ans.lower() == "end":
             print("遊戲將於一秒後結束")
             time.sleep(1)
             break
+            
+        num = int(ans)
         
         if num == rndans:
             gamepass = 1
