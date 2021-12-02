@@ -10,8 +10,6 @@ rank3 = dict()
 
 def IsNumber(s):
     try:
-        if s=='NaN':
-            return False
         float(s)
         return True
     except ValueError:
