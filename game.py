@@ -3,6 +3,15 @@ import time
 import os
 #import pyttsx3
 
+def IsNumber(s):
+    try:
+        if s=='NaN':
+            return False
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 def ChooseDifficulty():
     global srange
     global erange
@@ -10,12 +19,16 @@ def ChooseDifficulty():
 
     srange = 1
 
-    difficulty = int(input("請選擇難易度，1.簡單 2.普通 3.困難（輸入數字）"))
-    if difficulty == 1:
+    difficulty = input("請選擇難易度，1.簡單 2.普通 3.困難（輸入數字）")
+    if IsNumber(difficulty):
+        Ndifficulty = int(difficulty)
+    else:
+        Ndifficulty = -1
+    if Ndifficulty == 1:
         erange = 50
-    elif difficulty == 2:
+    elif Ndifficulty == 2:
         erange = 200
-    elif difficulty == 3:
+    elif Ndifficulty == 3:
         erange = 500
     else:
         print("輸入的困難度錯誤，請重新輸入！！")
@@ -45,7 +58,7 @@ def GameStart():
             print("遊戲將於一秒後結束")
             time.sleep(1)
             break
-            
+
         num = int(ans)
         
         if num == rndans:
