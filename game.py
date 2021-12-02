@@ -34,8 +34,8 @@ def GameStart():
         ans = input(f"請猜一個數字(範圍:1~{endrange})")
 
         if ans == "密技":
-            gamepass = 1
-            break
+            print(f"答案為{rndans}")
+            continue
 
         num = int(ans)
 
