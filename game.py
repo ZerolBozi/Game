@@ -4,10 +4,6 @@ import time
 import os
 import pyttsx3
 
-rank1 = dict()
-rank2 = dict()
-rank3 = dict()
-
 def IsNumber(s):
     try:
         float(s)
@@ -16,10 +12,6 @@ def IsNumber(s):
         return False
 
 def ChooseDifficulty():
-    global srange
-    global erange
-    global rndans
-    global ndifficulty
     srange = 1
 
     difficulty = input("請選擇難易度，1.簡單 2.普通 3.困難（輸入數字）")
@@ -44,10 +36,6 @@ def ChooseDifficulty():
     GameStart()
 
 def GameStart():
-    global srange
-    global erange
-    global rndans
-    global ndifficulty
     wrongans = 0
     gamepass = 0
 
@@ -112,10 +100,6 @@ def GameStart():
                 break
 
 def GameRank(difficulty,nwrong,spend):
-    global rank1
-    global rank2
-    global rank3
-
     r = ChooseRank(difficulty)
     try:
         ospend = r[nwrong]
@@ -136,4 +120,14 @@ def ChooseRank(difficulty):
         return rank3
 
 if __name__ == '__main__':
+    global rank1
+    global rank2
+    global rank3
+    global srange
+    global erange
+    global rndans
+    global ndifficulty
+    rank1 = dict()
+    rank2 = dict()
+    rank3 = dict()
     ChooseDifficulty()
